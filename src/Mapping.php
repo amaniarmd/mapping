@@ -13,7 +13,7 @@ use Armd\Mapping\Enumerations\FileTypeEnum;
 
 class Mapping
 {
-    public function mapApi($configFile, $inputAPI)
+    public function mapApi($configFile, $inputAPI): array
     {
         $contentType = $inputAPI->header('Content-Type');
        
@@ -28,7 +28,7 @@ class Mapping
         return $this->createMappedArray($inputAPI->body(), $inputObject, $configFile);
     }
 
-    public function mapFile($configFile, $inputFile, $inputType)
+    public function mapFile($configFile, $inputFile, $inputType): array
     {
         if ($inputType == FileTypeEnum::json) {
             $inputObject = new JsonService();
@@ -41,20 +41,21 @@ class Mapping
         return $this->createMappedArray($inputFile, $inputObject, $configFile);
     }
 
+    /**
+     * @throws Exception
+     */
     private function typeException($message)
     {
         throw new Exception($message, ErrorEnum::wrongTypeCode);
     }
 
-    private function createMappedArray($inputEntry, $inputObject, $configEntry)
+    private function createMappedArray($inputEntry, $inputObject, $configEntry): array
     {
         $responseArray = $this->arrayFactory($inputObject, $inputEntry);
         $configArray = $this->arrayFactory(new YamlService(), $configEntry);
 
         $mapService = new MapService();
-        $mappedArray = $mapService->Map($responseArray, $configArray);
-
-        return $mappedArray;
+        return $mapService->Map($responseArray, $configArray);
     }
 
     private function arrayFactory($instance, $entry)
