@@ -19,7 +19,7 @@ class MapService
                     unset($inputArray[$key]);
                 } else if (key_exists('child', $value)) {
                     $inputArray[$key] =
-                        $this->replace($inputArray, $value['child'], $key);
+                        $this->replace($inputArray[$key], $value['child'], $key);
                 } else if (key_exists('value', $value)) {
                     $inputArray[$value['value']] = $inputArray[$key];
                     unset($inputArray[$key]);
