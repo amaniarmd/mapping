@@ -8,6 +8,6 @@ class JsonService extends Convert
 {
     public function toArray($json): array
     {
-        return (array) json_decode($json);
+        return (array) json_decode($json, true);
     }
 }

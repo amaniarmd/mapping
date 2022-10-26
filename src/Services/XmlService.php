@@ -15,7 +15,7 @@ class XmlService extends Convert
     {
         $xml = simplexml_load_string($xmlFile, "SimpleXMLElement", LIBXML_NOCDATA);
         $json = json_encode($xml);
-        $array = json_decode($json);
+        $array = json_decode($json, true);
 
         return $array;
     }
