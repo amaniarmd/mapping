@@ -2,9 +2,10 @@
 
 namespace Armd\Mapping\Services;
 
+use Armd\Mapping\Abstract\Convert;
 use Symfony\Component\Yaml\Yaml;
 
-class YamlService
+class YamlService extends Convert
 {
     public function toArray($yamlFile): array
     {
