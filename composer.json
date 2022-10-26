@@ -1,0 +1,17 @@
+{
+    "name": "armd/mapping",
+    "description": "map json or xml file or API with yaml config file",
+    "autoload": {
+        "psr-4": {
+            "Armd\\Mapping\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amir Mohammad Amani"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^6.1"
+    }
+}
