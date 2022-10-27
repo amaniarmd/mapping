@@ -1,7 +1,9 @@
 # mapping
+
 map JSON or XML file or API with YAML config file
 
 # how to use
+
 if you have a JSON like below and you want to change your "products" key to "merchandise" and also you want to change the first product's "description" key to "details"::
 {
     "products": [
@@ -29,6 +31,7 @@ if you have a JSON like below and you want to change your "products" key to "mer
     "skip": 0,
     "limit": 30
 }
+
 You should write your YAML file like this:
 products: 
   value: "merchendise"
